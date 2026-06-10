@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desi Wanderer – Read Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #faf9f8; color: #2b2b2b; font-family: 'Poppins', sans-serif; line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 249, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e6e4e0; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .logo { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; }
+    .logo span { color: #d96c4e; }
+    .back-btn { font-size: 0.9rem; font-weight: 500; color: #737373; border: 1px solid #e6e4e0; padding: 6px 16px; border-radius: 20px; transition: 0.2s; }
+    .back-btn:hover { background: #d96c4e; color: #fff; border-color: #d96c4e; }
+
+    .article-container { max-width: 800px; margin: 60px auto 100px; padding: 0 5%; }
+    .hero-img { width: 100%; height: 350px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 6rem; margin-bottom: 40px; }
+    .meta { color: #d96c4e; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 16px; display: block; }
+    h1 { font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; color: #2b2b2b; }
+    .summary { font-size: 1.2rem; color: #737373; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 1px solid #e6e4e0; margin: 40px 0; }
+    
+    .blog-content h3 { font-family: 'Lora', serif; font-size: 1.5rem; margin: 40px 0 16px; color: #2b2b2b; }
+    .blog-content p { margin-bottom: 24px; font-size: 1.05rem; }
+    .blog-content ul { margin-bottom: 24px; padding-left: 20px; }
+    .blog-content li { margin-bottom: 10px; }
+    
+    .loading { text-align: center; padding: 100px 0; color: #737373; font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Desi<span>Wanderer</span>.</a>
+  <a href="index.html" class="back-btn">← Home</a>
+</nav>
+
+<div class="article-container" id="blog-post">
+  <div class="loading">Loading your desi travel hack... 🚂</div>
+</div>
+
+<script>
+  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8MZqPKFiEFgTGqxNzpxEUI-R8CANWXpB21nCkPh4BcO_2qz84dNK0E63zkYr2Idhvvm0cIrEPjpWA/pub?gid=0&single=true&output=csv';
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get('id');
+
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
+    return lines.slice(1).map(line => {
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') { inQ = !inQ; }
+        else if (c === ',' && !inQ) { cols.push(cur); cur = ''; }
+        else { cur += c; }
+      }
+      cols.push(cur);
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = (cols[i] || '').replace(/^"|"$/g,'').trim());
+      return obj;
+    });
+  }
+
+  async function loadPost() {
+    const container = document.getElementById('blog-post');
+    let blogs = [];
+
+    try {
+      const res = await fetch(SHEET_CSV_URL);
+      if (res.ok) {
+        const text = await res.text();
+        blogs = parseCSV(text);
+      } else {
+        throw new Error('Failed to fetch from Google Sheets');
+      }
+    } catch (err) { 
+      console.error(err);
+    }
+
+    const post = blogs.find(b => b.id === postId);
+
+    if (!post) {
+      container.innerHTML = `<h1>Oops! Blog not found 🧐</h1><p>Looks like this train has already left the station. <a href="index.html" style="color:#d96c4e;text-decoration:underline;">Go back to home.</a></p>`;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="hero-img" style="background:${post.image_grad || 'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)'}">${post.emoji || '✈️'}</div>
+      <span class="meta">${post.category || 'Travel'} • ${post.read_time || '5 Min Read'}</span>
+      <h1>${post.title}</h1>
+      <p class="summary">${post.summary}</p>
+      <hr/>
+      <div class="blog-content">
+        ${post.content}
+      </div>
+    `;
+  }
+
+  loadPost();
+</script>
+</body>
+</html>

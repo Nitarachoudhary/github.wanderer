@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desi Wanderer – Every Style of Travel</title>
+  <meta name="description" content="From hitchhiking across borders to luxury stays. Travel the world, the desi way."/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      var(--bg): #faf9f8; var(--surface): #ffffff; var(--card): #ffffff; var(--border): #e6e4e0;
+      var(--accent): #d96c4e; var(--accent-dim): #fdf5f3; var(--text-main): #2b2b2b;
+      var(--muted): #737373; var(--tag-bg): #f2f0eb;
+      var(--font-head): 'Lora', serif; var(--font-body): 'Poppins', sans-serif;
+    }
+
+    @keyframes shimmer { 0% { background-position: -600px 0; } 100% { background-position: 600px 0; } }
+    .skel-line { border-radius: 4px; height: 14px; margin-bottom: 10px; background: linear-gradient(90deg, #f0ede9 25%, #f7f6f5 50%, #f0ede9 75%); background-size: 600px 100%; animation: shimmer 1.4s infinite linear; }
+    .skel-img { height: 100%; background: linear-gradient(90deg, #f0ede9 25%, #f7f6f5 50%, #f0ede9 75%); background-size: 600px 100%; animation: shimmer 1.4s infinite linear; border-radius: 0; }
+    .skel-tag { width: 70px; height: 22px; margin-bottom: 12px; border-radius: 20px;}
+    .skel-title{ height: 18px; margin-bottom: 12px; }
+    .skel-desc { height: 12px; }
+    .skeleton-card { pointer-events: none; border: 1px solid #e6e4e0; }
+
+    html { scroll-behavior: smooth; }
+    body { background: #faf9f8; color: #2b2b2b; font-family: 'Poppins', sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 249, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e6e4e0; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .logo { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; color: #2b2b2b; }
+    .logo span { color: #d96c4e; }
+    .nav-links { display: flex; gap: 28px; font-size: 0.9rem; color: #737373; font-weight: 500; }
+    .nav-links a:hover { color: #d96c4e; }
+    .nav-cta { background: #d96c4e; color: #fff; font-size: 0.85rem; font-weight: 500; padding: 8px 20px; border-radius: 30px; transition: background .2s, transform .2s; }
+    .nav-cta:hover { background: #c25b3f; transform: translateY(-1px); }
+
+    .hero { padding: 100px 5% 80px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-badge { display: inline-block; background: #fdf5f3; color: #d96c4e; font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Lora', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; line-height: 1.15; margin-bottom: 24px; color: #2b2b2b; }
+    .hero h1 i { color: #d96c4e; font-weight: 400; }
+    .hero p { color: #737373; font-size: 1.1rem; max-width: 550px; margin: 0 auto 40px; }
+    .hero-tags { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .hero-tags span { border: 1px solid #e6e4e0; padding: 8px 16px; border-radius: 30px; font-size: 0.85rem; color: #737373; background: #ffffff; }
+
+    .ticker-wrap { border-top: 1px solid #e6e4e0; border-bottom: 1px solid #e6e4e0; background: #ffffff; overflow: hidden; padding: 14px 0; }
+    .ticker { display: flex; gap: 60px; animation: scroll 35s linear infinite; white-space: nowrap; }
+    .ticker:hover { animation-play-state: paused; }
+    @keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .tick-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #737373; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+    .tick-item .dot { width: 6px; height: 6px; border-radius: 50%; background: #d96c4e; }
+
+    .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 1px solid #e6e4e0; padding-bottom: 16px; }
+    .section-title { font-family: 'Lora', serif; font-size: 2rem; font-weight: 600; }
+    .see-all { font-size: 0.9rem; color: #d96c4e; font-weight: 500; }
+    .see-all:hover { text-decoration: underline; }
+
+    .featured-post { display: flex; gap: 0; align-items: stretch; margin-bottom: 80px; background: #ffffff; border: 1px solid #e6e4e0; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
+    .featured-img { flex: 1.2; min-height: 400px; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .featured-content { flex: 1; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .meta { font-size: 0.8rem; color: #d96c4e; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 16px; display: block; }
+    .featured-content h2 { font-family: 'Lora', serif; font-size: 2.2rem; line-height: 1.25; margin-bottom: 20px; }
+    .featured-content p { color: #737373; margin-bottom: 30px; font-size: 1.05rem; }
+    .read-more { display: inline-block; border-bottom: 2px solid #d96c4e; color: #2b2b2b; font-weight: 600; font-size: 0.9rem; padding-bottom: 4px; transition: opacity .2s; align-self: flex-start; }
+    .read-more:hover { opacity: 0.7; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: #ffffff; border: 1px solid #e6e4e0; border-radius: 12px; overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; cursor: pointer; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-color: #dcd9d4; }
+    .card-img { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border-bottom: 1px solid #e6e4e0; }
+    .card-body { padding: 24px 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-tags { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .tag { background: #f2f0eb; color: #2b2b2b; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; }
+    .tag[data-type="Hitchhiking"] { background: #fff3cd; color: #856404; }
+    .tag[data-type="Luxury"] { background: #d4edda; color: #155724; }
+    .tag[data-type="Budget"] { background: #cce5ff; color: #004085; }
+    .tag[data-type="Solo"] { background: #f8d7da; color: #721c24; }
+    .card h3 { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: #2b2b2b; }
+    .card p { font-size: 0.9rem; color: #737373; margin-bottom: 24px; flex: 1; }
+    .card-foot { font-size: 0.8rem; font-weight: 500; color: #737373; display: flex; justify-content: space-between; border-top: 1px solid #e6e4e0; padding-top: 16px; }
+
+    .newsletter { background: #ffffff; border: 1px solid #e6e4e0; border-radius: 16px; padding: 70px 20px; text-align: center; margin: 0 5% 80px; max-width: 1000px; margin-left: auto; margin-right: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+    .newsletter h2 { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 600; margin-bottom: 12px; }
+    .newsletter p { color: #737373; margin-bottom: 32px; font-size: 1.05rem; }
+    .email-row { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+    .email-row input { flex: 1; background: #faf9f8; border: 1px solid #e6e4e0; color: #2b2b2b; font-family: 'Poppins', sans-serif; font-size: 0.95rem; padding: 16px 24px; border-radius: 30px; outline: none; }
+    .email-row input:focus { border-color: #d96c4e; }
+    .email-row button { background: #d96c4e; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.95rem; padding: 16px 32px; border-radius: 30px; border: none; cursor: pointer; transition: background .2s; }
+    .email-row button:hover { background: #c25b3f; }
+
+    footer { border-top: 1px solid #e6e4e0; padding: 60px 5% 40px; text-align: center; background: #ffffff; }
+    footer .logo { font-size: 1.4rem; margin-bottom: 20px; }
+    .footer-links { display: flex; justify-content: center; gap: 32px; font-size: 0.9rem; color: #737373; margin-bottom: 32px; flex-wrap: wrap; }
+    .footer-links a:hover { color: #d96c4e; }
+    footer p { font-size: 0.85rem; color: #737373; }
+
+    @media (max-width: 768px) { .featured-post { flex-direction: column; gap: 0; } .featured-img { min-height: 250px; } .featured-content { padding: 32px 24px; } .nav-links { display: none; } .email-row { flex-direction: column; } .hero-tags { display: none; } .section-head { flex-direction: column; align-items: flex-start; gap: 10px; } }
+    [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    [data-fade].visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Desi<span>Wanderer</span>.</a>
+  <div class="nav-links">
+    <a href="budget.html">Budget</a>
+    <a href="#">Luxury</a>
+    <a href="#">Solo</a>
+    <a href="#">Hitchhiking</a>
+  </div>
+  <a href="#newsletter" class="nav-cta">Join the Tribe</a>
+</nav>
+
+<div class="hero">
+  <span class="hero-badge">Travel Without Borders</span>
+  <h1>Your journey, <br/><i>your rules.</i></h1>
+  <p>Whether you're hitchhiking across the Spiti Valley, backpacking through Vietnam, or enjoying a 5-star villa in the Maldives — we've got the guides you need.</p>
+  
+  <div class="hero-tags">
+    <span>🏕️ Backpacking</span>
+    <span>👍 Hitchhiking</span>
+    <span>✨ Luxury Stays</span>
+    <span>🎒 Solo Travel</span>
+    <span>💸 Shoestring Budget</span>
+  </div>
+</div>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="tick-item"><span class="dot"></span> 💸 Budget in Vietnam</span>
+    <span class="tick-item"><span class="dot"></span> ✨ Luxury in Maldives</span>
+    <span class="tick-item"><span class="dot"></span> 👍 Hitchhiking Spiti Valley</span>
+    <span class="tick-item"><span class="dot"></span> 🎒 Solo Female in Bali</span>
+    <span class="tick-item"><span class="dot"></span> 🏕️ Backpacking Europe</span>
+    <span class="tick-item"><span class="dot"></span> ✨ Glamping in Swiss Alps</span>
+    <span class="tick-item"><span class="dot"></span> 👍 Hitching Route 66</span>
+    <span class="tick-item"><span class="dot"></span> 💸 Budget in Vietnam</span>
+    <span class="tick-item"><span class="dot"></span> ✨ Luxury in Maldives</span>
+    <span class="tick-item"><span class="dot"></span> 👍 Hitchhiking Spiti Valley</span>
+    <span class="tick-item"><span class="dot"></span> 🎒 Solo Female in Bali</span>
+    <span class="tick-item"><span class="dot"></span> 🏕️ Backpacking Europe</span>
+    <span class="tick-item"><span class="dot"></span> ✨ Glamping in Swiss Alps</span>
+    <span class="tick-item"><span class="dot"></span> 👍 Hitching Route 66</span>
+  </div>
+</div>
+
+<div class="section" id="stories">
+  
+  <div class="featured-post" data-fade>
+    <div class="featured-img">🏔️</div>
+    <div class="featured-content">
+      <span class="meta">The Ultimate Mashup • 15 Min Read</span>
+      <h2>From Thumbing Rides to 5-Star Skies: The Spiti Valley Guide</h2>
+      <p>We spent two weeks in the Himalayas doing it all. See how we hitchhiked across treacherous terrain, lived on $5 a day, and then splurged on the most luxurious eco-resort in the mountains.</p>
+      <a href="post.html?id=goa-5000" class="read-more">Read the Epic Journey</a>
+    </div>
+  </div>
+
+  <div class="section-head" style="margin-top:80px">
+    <h2 class="section-title">Latest Dispatches</h2>
+    <a href="budget.html" class="see-all">View All Stories →</a>
+  </div>
+  
+  <div class="cards-grid" data-fade id="blog-cards-grid">
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-title skel-line" style="width: 60%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div><div class="skel-desc skel-line" style="width: 80%;"></div></div></div>
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-title skel-line" style="width: 60%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div><div class="skel-desc skel-line" style="width: 80%;"></div></div></div>
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-title skel-line" style="width: 60%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div><div class="skel-desc skel-line" style="width: 80%;"></div></div></div>
+  </div>
+</div>
+
+<div class="newsletter" id="newsletter" data-fade>
+  <h2>Travel Smarter, Not Harder.</h2>
+  <p>Get our weekly dispatch featuring hitchhiking routes, luxury hotel hacks, and solo travel safety guides directly in your inbox.</p>
+  <div class="email-row">
+    <input type="email" placeholder="Drop your email here..." />
+    <button>Subscribe Now</button>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Desi<span>Wanderer</span>.</div>
+  <div class="footer-links">
+    <a href="#">Hitchhiking Guides</a>
+    <a href="budget.html">Budget Backpacking</a>
+    <a href="#">Solo Travel</a>
+    <a href="#">Luxury Escapes</a>
+    <a href="#">Work With Us</a>
+  </div>
+  <p>© 2026 Desi Wanderer. Built for every kind of traveler.</p>
+</footer>
+
+<script>
+  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8MZqPKFiEFgTGqxNzpxEUI-R8CANWXpB21nCkPh4BcO_2qz84dNK0E63zkYr2Idhvvm0cIrEPjpWA/pub?gid=0&single=true&output=csv';
+
+  const GRADIENTS = [
+    'linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)',
+    'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+    'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+    'linear-gradient(135deg, #e2ebf0 0%, #cfd9df 100%)',
+    'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+    'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)'
+  ];
+
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
+    return lines.slice(1).map(line => {
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') { inQ = !inQ; }
+        else if (c === ',' && !inQ) { cols.push(cur); cur = ''; }
+        else { cur += c; }
+      }
+      cols.push(cur);
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = (cols[i] || '').replace(/^"|"$/g,'').trim());
+      return obj;
+    });
+  }
+
+  function renderCards(blogs) {
+    const grid = document.getElementById('blog-cards-grid');
+    
+    // Fallback if sheet is empty or not formatted yet
+    const isMockNeeded = !blogs.length || !blogs[0].summary; 
+    const displayData = isMockNeeded ? [
+      { id: 'goa-5000', emoji: '🌴', category: 'Budget', title: 'Goa for ₹5,000? The Ultimate Off-Season Backpacking Guide', summary: 'Forget expensive beach shacks and overpriced taxis. We stayed in a ₹400/night hostel in Arambol, rented a scooty, and ate incredible fish thalis.', read_time: '10 Min Read' },
+      { id: 'sleeper-class', emoji: '🚂', category: 'Budget', title: 'Sleeper Class Diaries: Why the Indian Railways is an Adventure', summary: 'Side lower seat, chaiwaalas singing at 3 AM, and sharing puri-sabzi with aunties.', read_time: '7 Min Read' }
+    ] : blogs;
+
+    grid.innerHTML = displayData.map((b, i) => {
+      const grad = b.image_grad || GRADIENTS[i % GRADIENTS.length];
+      const href = b.id ? `href="post.html?id=${b.id}"` : 'href="#"';
+      
+      return `
+        <a ${href} class="card">
+          <div class="card-img" style="background:${grad}">${b.emoji || '✈️'}</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag" data-type="${b.category || 'Travel'}">${b.category || 'Travel'}</span>
+            </div>
+            <h3>${b.title}</h3>
+            <p>${b.summary}</p>
+            <div class="card-foot">
+              <span>Desi Wanderer</span>
+              <span>${b.read_time || '5 Min Read'}</span>
+            </div>
+          </div>
+        </a>`;
+    }).join('');
+    
+    grid.querySelectorAll('.card').forEach(el => observer.observe(el));
+  }
+
+  async function loadBlogs() {
+    const grid = document.getElementById('blog-cards-grid');
+    try {
+      const res  = await fetch(SHEET_CSV_URL);
+      if (!res.ok) throw new Error('fetch failed');
+      const text = await res.text();
+      const all  = parseCSV(text);
+      const live = all.filter(b => b.published === 'TRUE' || b.published === 'true' || b.published === '1');
+      renderCards(live);
+    } catch (err) {
+      console.error('Blog load error, loading default mock data:', err);
+      renderCards([]); 
+    }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
+
+  loadBlogs();
+</script>
+</body>
+</html>

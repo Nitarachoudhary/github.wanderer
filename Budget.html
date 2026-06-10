@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desi Wanderer – Budget Travel Guides</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { var(--bg): #faf9f8; var(--surface): #ffffff; var(--card): #ffffff; var(--border): #e6e4e0; var(--accent): #d96c4e; var(--accent-dim): #fdf5f3; var(--text-main): #2b2b2b; var(--muted): #737373; var(--font-head): 'Lora', serif; var(--font-body): 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text-main); font-family: var(--font-body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 249, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-main); }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 500; padding: 8px 20px; border-radius: 30px; transition: background .2s, transform .2s; }
+    .nav-cta:hover { background: #c25b3f; transform: translateY(-1px); }
+
+    .hero { padding: 80px 5% 60px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-badge { display: inline-block; background: var(--accent-dim); color: var(--accent); font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; line-height: 1.15; margin-bottom: 24px; color: var(--text-main); }
+    .hero h1 i { color: var(--accent); font-weight: 400; }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 40px; }
+
+    .section { padding: 40px 5% 80px; max-width: 1200px; margin: 0 auto; }
+    .featured-post { display: flex; gap: 0; align-items: stretch; margin-bottom: 80px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
+    .featured-img { flex: 1.2; min-height: 400px; background: linear-gradient(135deg, #cce5ff 0%, #e0c3fc 100%); display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .featured-content { flex: 1; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .meta { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 16px; display: block; }
+    .featured-content h2 { font-family: var(--font-head); font-size: 2rem; line-height: 1.25; margin-bottom: 20px; }
+    .featured-content p { color: var(--muted); margin-bottom: 30px; font-size: 1.05rem; }
+    .read-more { display: inline-block; border-bottom: 2px solid var(--accent); color: var(--text-main); font-weight: 600; font-size: 0.9rem; padding-bottom: 4px; transition: opacity .2s; align-self: flex-start; }
+    .read-more:hover { opacity: 0.7; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; cursor: pointer; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-color: #dcd9d4; }
+    .card-img { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border-bottom: 1px solid var(--border); }
+    .card-body { padding: 24px 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-tags { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .tag { background: #cce5ff; color: #004085; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; }
+    .card h3 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: var(--text-main); }
+    .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; flex: 1; }
+    .card-foot { font-size: 0.8rem; font-weight: 500; color: var(--muted); display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; }
+
+    .newsletter { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 70px 20px; text-align: center; margin: 0 5% 80px; max-width: 1000px; margin-left: auto; margin-right: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+    .newsletter h2 { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; margin-bottom: 12px; }
+    .newsletter p { color: var(--muted); margin-bottom: 32px; font-size: 1.05rem; }
+    .email-row { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+    .email-row input { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem; padding: 16px 24px; border-radius: 30px; outline: none; }
+    .email-row input:focus { border-color: var(--accent); }
+    .email-row button { background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; padding: 16px 32px; border-radius: 30px; border: none; cursor: pointer; transition: background .2s; }
+    .email-row button:hover { background: #c25b3f; }
+
+    footer { border-top: 1px solid var(--border); padding: 60px 5% 40px; text-align: center; background: var(--surface); }
+    footer .logo { font-size: 1.4rem; margin-bottom: 20px; }
+    .footer-links { display: flex; justify-content: center; gap: 32px; font-size: 0.9rem; color: var(--muted); margin-bottom: 32px; flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--accent); }
+    footer p { font-size: 0.85rem; color: var(--muted); }
+
+    @media (max-width: 768px) { .featured-post { flex-direction: column; gap: 0; } .featured-img { min-height: 250px; } .featured-content { padding: 32px 24px; } .nav-links { display: none; } .email-row { flex-direction: column; } }
+    [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    [data-fade].visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Desi<span>Wanderer</span>.</a>
+  <div class="nav-links">
+    <a href="budget.html" class="active">Budget</a>
+    <a href="#">Luxury</a>
+    <a href="#">Solo</a>
+    <a href="#">Hitchhiking</a>
+  </div>
+  <a href="#newsletter" class="nav-cta">Join the Tribe</a>
+</nav>
+
+<div class="hero" data-fade>
+  <span class="hero-badge">Saste Mein Mast</span>
+  <h1>Wander More, <br/><i>Kharcha Less.</i></h1>
+  <p>You don't need a fat bank balance to see the world, yaar. From surviving 36 hours in sleeper class to finding the most filling ₹100 thali, here is your ultimate desi guide to doing epic trips on a shoestring budget.</p>
+</div>
+
+<div class="section" id="stories">
+  
+  <div class="featured-post" data-fade>
+    <div class="featured-img" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">🌴</div>
+    <div class="featured-content">
+      <span class="meta">Editor's Pick • 10 Min Read</span>
+      <h2>Goa for ₹5,000? The Ultimate Off-Season Backpacking Guide</h2>
+      <p>Forget expensive beach shacks and overpriced taxis. We stayed in a ₹400/night hostel in Arambol, rented a scooty with complete strangers, and ate incredible fish thalis. Here is the exact cost breakdown of how to 'do Goa' like a true budget backpacker.</p>
+      <a href="post.html?id=goa-5000" class="read-more">Read the Breakdown</a>
+    </div>
+  </div>
+
+  <div class="cards-grid" id="budget-cards-grid">
+  </div>
+</div>
+
+<div class="newsletter" id="newsletter" data-fade>
+  <h2>Save Money. Travel Longer.</h2>
+  <p>Drop your email below and we'll send you our exclusive guide on booking cheap flight tickets and dodging tourist traps, straight to your inbox.</p>
+  <div class="email-row">
+    <input type="email" placeholder="Tumhara email address..." />
+    <button>Send me the Hacks</button>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Desi<span>Wanderer</span>.</div>
+  <div class="footer-links">
+    <a href="budget.html">Budget Backpacking</a>
+    <a href="#">Hitchhiking Guides</a>
+    <a href="#">Solo Travel</a>
+    <a href="#">Luxury Escapes</a>
+    <a href="#">Work With Us</a>
+  </div>
+  <p>© 2026 Desi Wanderer. Built for every kind of traveler.</p>
+</footer>
+
+<script>
+  const budgetStories = [
+    { id: 'sleeper-class', emoji: '🚂', title: 'Sleeper Class Diaries: Why the Indian Railways is an Adventure', summary: 'Side lower seat, chaiwaalas singing at 3 AM, and sharing puri-sabzi with aunties.', read_time: '7 Min Read', grad: 'linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)' },
+    { id: 'delhi-food', emoji: '🍲', title: 'Street Food Survival: Eating Across Delhi Under ₹200', summary: 'Chole bhature, momos, and endless cups of cutting chai. How to eat like a king.', read_time: '5 Min Read', grad: 'linear-gradient(135deg, #e2ebf0 0%, #cfd9df 100%)' },
+    { id: 'himalayas-stay', emoji: '🛏️', title: 'Dharamshalas & Zostels: Where to Sleep Cheap in the Himalayas', summary: 'Skip the fancy hotels. From ₹300 bunk beds in Manali to peaceful monasteries.', read_time: '8 Min Read', grad: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' },
+    { id: 'europe-rupee', emoji: '✈️', title: 'Europe on a Rupee Budget? The Jugaadu Schengen Guide', summary: 'Yes, it is possible. How to navigate Eastern Europe on €20 a day.', read_time: '12 Min Read', grad: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)' },
+    { id: 'desi-apps', emoji: '📱', title: '5 Apps Every Desi Backpacker Must Have', summary: 'From splitting bills on Splitwise to checking IRCTC PNR status instantly.', read_time: '4 Min Read', grad: 'linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%)' },
+    { id: 'sarojini-packing', emoji: '🎒', title: 'The Sarojini Market Packing List', summary: 'Why buy expensive trekking gear when you can find pure gold at local flea markets.', read_time: '6 Min Read', grad: 'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)' }
+  ];
+
+  function renderBudgetCards() {
+    const grid = document.getElementById('budget-cards-grid');
+    grid.innerHTML = budgetStories.map(b => `
+      <a href="post.html?id=${b.id}" class="card" data-fade>
+        <div class="card-img" style="background:${b.grad}">${b.emoji}</div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">Budget & Jugaad</span>
+          </div>
+          <h3>${b.title}</h3>
+          <p>${b.summary}</p>
+          <div class="card-foot">
+            <span>Desi Wanderer</span>
+            <span>${b.read_time}</span>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    renderBudgetCards();
+    document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
+  });
+</script>
+</body>
+</html>
