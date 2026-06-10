@@ -11,7 +11,7 @@
     a { color: inherit; text-decoration: none; }
     
     nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 249, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e6e4e0; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
-    .logo { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; }
+    .logo { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: #2b2b2b; }
     .logo span { color: #d96c4e; }
     .back-btn { font-size: 0.9rem; font-weight: 500; color: #737373; border: 1px solid #e6e4e0; padding: 6px 16px; border-radius: 20px; transition: 0.2s; }
     .back-btn:hover { background: #d96c4e; color: #fff; border-color: #d96c4e; }
@@ -35,7 +35,7 @@
 
 <nav>
   <a href="index.html" class="logo">Desi<span>Wanderer</span>.</a>
-  <a href="index.html" class="back-btn">← Home</a>
+  <a href="javascript:history.back()" class="back-btn">← Back</a>
 </nav>
 
 <div class="article-container" id="blog-post">
@@ -48,23 +48,34 @@
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get('id');
 
+  // Upgraded parseCSV to handle line breaks in your blog content
   function parseCSV(text) {
-    const lines = text.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
-    return lines.slice(1).map(line => {
-      const cols = [];
-      let cur = '', inQ = false;
-      for (let i = 0; i < line.length; i++) {
-        const c = line[i];
-        if (c === '"') { inQ = !inQ; }
-        else if (c === ',' && !inQ) { cols.push(cur); cur = ''; }
-        else { cur += c; }
+      const result = [];
+      let cur = '', inQ = false, row = [];
+      for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (c === '"') {
+              if (inQ && text[i+1] === '"') { cur += '"'; i++; }
+              else { inQ = !inQ; }
+          } else if (c === ',' && !inQ) {
+              row.push(cur); cur = '';
+          } else if ((c === '\n' || c === '\r') && !inQ) {
+              if (c === '\r' && text[i+1] === '\n') i++; 
+              row.push(cur);
+              if (row.length > 1 || row[0] !== '') result.push(row);
+              cur = ''; row = [];
+          } else {
+              cur += c;
+          }
       }
-      cols.push(cur);
-      const obj = {};
-      headers.forEach((h, i) => obj[h] = (cols[i] || '').replace(/^"|"$/g,'').trim());
-      return obj;
-    });
+      if (cur !== '' || row.length > 0) { row.push(cur); result.push(row); }
+      
+      const headers = result[0].map(h => h.trim().toLowerCase().replace(/ /g,'_'));
+      return result.slice(1).map(r => {
+          const obj = {};
+          headers.forEach((h, j) => obj[h] = r[j] ? r[j].trim() : '');
+          return obj;
+      });
   }
 
   async function loadPost() {

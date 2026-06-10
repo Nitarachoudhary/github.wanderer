@@ -12,7 +12,7 @@
     body { background: var(--bg); color: var(--text-main); font-family: var(--font-body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 249, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
-    .logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-main); }
+    .logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
     .logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 28px; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
@@ -25,7 +25,7 @@
     .hero p { color: var(--muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 40px; }
     .section { padding: 40px 5% 80px; max-width: 1200px; margin: 0 auto; }
     .featured-post { display: flex; gap: 0; align-items: stretch; margin-bottom: 80px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
-    .featured-img { flex: 1.2; min-height: 400px; background: linear-gradient(135deg, #ffd194 0%, #70e1f5 100%); display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .featured-img { flex: 1.2; min-height: 400px; background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); display: flex; align-items: center; justify-content: center; font-size: 6rem; }
     .featured-content { flex: 1; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
     .meta { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 16px; display: block; }
     .featured-content h2 { font-family: var(--font-head); font-size: 2rem; line-height: 1.25; margin-bottom: 20px; }
@@ -42,20 +42,12 @@
     .card h3 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: var(--text-main); }
     .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; flex: 1; }
     .card-foot { font-size: 0.8rem; font-weight: 500; color: var(--muted); display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; }
-    .newsletter { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 70px 20px; text-align: center; margin: 0 5% 80px; max-width: 1000px; margin-left: auto; margin-right: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
-    .newsletter h2 { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; margin-bottom: 12px; }
-    .newsletter p { color: var(--muted); margin-bottom: 32px; font-size: 1.05rem; }
-    .email-row { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
-    .email-row input { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem; padding: 16px 24px; border-radius: 30px; outline: none; }
-    .email-row input:focus { border-color: var(--accent); }
-    .email-row button { background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; padding: 16px 32px; border-radius: 30px; border: none; cursor: pointer; transition: background .2s; }
-    .email-row button:hover { background: #c25b3f; }
     footer { border-top: 1px solid var(--border); padding: 60px 5% 40px; text-align: center; background: var(--surface); }
     footer .logo { font-size: 1.4rem; margin-bottom: 20px; }
     .footer-links { display: flex; justify-content: center; gap: 32px; font-size: 0.9rem; color: var(--muted); margin-bottom: 32px; flex-wrap: wrap; }
     .footer-links a:hover { color: var(--accent); }
     footer p { font-size: 0.85rem; color: var(--muted); }
-    @media (max-width: 768px) { .featured-post { flex-direction: column; gap: 0; } .featured-img { min-height: 250px; } .featured-content { padding: 32px 24px; } .nav-links { display: none; } .email-row { flex-direction: column; } }
+    @media (max-width: 768px) { .featured-post { flex-direction: column; gap: 0; } .featured-img { min-height: 250px; } .featured-content { padding: 32px 24px; } .nav-links { display: none; } }
     [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
     [data-fade].visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -85,21 +77,11 @@
     <div class="featured-content">
       <span class="meta">Editor's Pick • 12 Min Read</span>
       <h2>Living Like Royalty: Inside Udaipur's ₹50,000/Night Floating Palace</h2>
-      <p>We spent a weekend at the Taj Lake Palace in Udaipur. From rose-petal welcomes and private boat rides across Lake Pichola to dining like actual Mewar royalty. Is the hefty price tag really worth the hype?</p>
+      <p>We spent a weekend at the Taj Lake Palace in Udaipur. From rose-petal welcomes and private boat rides across Lake Pichola to dining like actual Mewar royalty.</p>
       <a href="post.html?id=udaipur-palace" class="read-more">Read the Review</a>
     </div>
   </div>
-  
   <div class="cards-grid"></div>
-</div>
-
-<div class="newsletter" id="newsletter" data-fade>
-  <h2>Upgrade Your Travel.</h2>
-  <p>Want to know how to get free hotel room upgrades and business class lounge access? Drop your email below.</p>
-  <div class="email-row">
-    <input type="email" placeholder="Tumhara email address..." />
-    <button>Get Luxury Hacks</button>
-  </div>
 </div>
 
 <footer>
@@ -109,7 +91,6 @@
     <a href="budget.html">Budget Backpacking</a>
     <a href="solo.html">Solo Travel</a>
     <a href="luxury.html">Luxury Escapes</a>
-    <a href="#">Work With Us</a>
   </div>
   <p>© 2026 Desi Wanderer. Built for every kind of traveler.</p>
 </footer>
@@ -118,21 +99,32 @@
   const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8MZqPKFiEFgTGqxNzpxEUI-R8CANWXpB21nCkPh4BcO_2qz84dNK0E63zkYr2Idhvvm0cIrEPjpWA/pub?gid=0&single=true&output=csv';
 
   function parseCSV(text) {
-    const lines = text.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
-    return lines.slice(1).map(line => {
-      const cols = []; let cur = '', inQ = false;
-      for (let i = 0; i < line.length; i++) {
-        const c = line[i];
-        if (c === '"') { inQ = !inQ; }
-        else if (c === ',' && !inQ) { cols.push(cur); cur = ''; }
-        else { cur += c; }
+      const result = [];
+      let cur = '', inQ = false, row = [];
+      for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (c === '"') {
+              if (inQ && text[i+1] === '"') { cur += '"'; i++; }
+              else { inQ = !inQ; }
+          } else if (c === ',' && !inQ) {
+              row.push(cur); cur = '';
+          } else if ((c === '\n' || c === '\r') && !inQ) {
+              if (c === '\r' && text[i+1] === '\n') i++; 
+              row.push(cur);
+              if (row.length > 1 || row[0] !== '') result.push(row);
+              cur = ''; row = [];
+          } else {
+              cur += c;
+          }
       }
-      cols.push(cur);
-      const obj = {};
-      headers.forEach((h, i) => obj[h] = (cols[i] || '').replace(/^"|"$/g,'').trim());
-      return obj;
-    });
+      if (cur !== '' || row.length > 0) { row.push(cur); result.push(row); }
+      
+      const headers = result[0].map(h => h.trim().toLowerCase().replace(/ /g,'_'));
+      return result.slice(1).map(r => {
+          const obj = {};
+          headers.forEach((h, j) => obj[h] = r[j] ? r[j].trim() : '');
+          return obj;
+      });
   }
 
   function renderCards(blogs) {
@@ -163,7 +155,6 @@
   async function loadCategoryBlogs() {
     try {
       const res  = await fetch(SHEET_CSV_URL);
-      if (!res.ok) throw new Error('fetch failed');
       const text = await res.text();
       const all  = parseCSV(text);
       const categoryBlogs = all.filter(b => 
@@ -174,14 +165,8 @@
     } catch (err) { console.error('Error loading blogs:', err); }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.1 });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    loadCategoryBlogs();
-    document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
-  });
+  const observer = new IntersectionObserver((e) => { e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+  document.addEventListener("DOMContentLoaded", () => { loadCategoryBlogs(); document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el)); });
 </script>
 </body>
 </html>

@@ -4,20 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Desi Wanderer – Every Style of Travel</title>
-  <meta name="description" content="From hitchhiking across borders to luxury stays. Travel the world, the desi way."/>
-  
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      var(--bg): #faf9f8; var(--surface): #ffffff; var(--card): #ffffff; var(--border): #e6e4e0;
-      var(--accent): #d96c4e; var(--accent-dim): #fdf5f3; var(--text-main): #2b2b2b;
-      var(--muted): #737373; var(--tag-bg): #f2f0eb;
-      var(--font-head): 'Lora', serif; var(--font-body): 'Poppins', sans-serif;
-    }
-
+    :root { var(--bg): #faf9f8; var(--surface): #ffffff; var(--card): #ffffff; var(--border): #e6e4e0; var(--accent): #d96c4e; var(--accent-dim): #fdf5f3; var(--text-main): #2b2b2b; var(--muted): #737373; var(--tag-bg): #f2f0eb; var(--font-head): 'Lora', serif; var(--font-body): 'Poppins', sans-serif; }
     @keyframes shimmer { 0% { background-position: -600px 0; } 100% { background-position: 600px 0; } }
     .skel-line { border-radius: 4px; height: 14px; margin-bottom: 10px; background: linear-gradient(90deg, #f0ede9 25%, #f7f6f5 50%, #f0ede9 75%); background-size: 600px 100%; animation: shimmer 1.4s infinite linear; }
     .skel-img { height: 100%; background: linear-gradient(90deg, #f0ede9 25%, #f7f6f5 50%, #f0ede9 75%); background-size: 600px 100%; animation: shimmer 1.4s infinite linear; border-radius: 0; }
@@ -29,7 +20,6 @@
     html { scroll-behavior: smooth; }
     body { background: #faf9f8; color: #2b2b2b; font-family: 'Poppins', sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
-
     nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 249, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e6e4e0; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
     .logo { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; color: #2b2b2b; }
     .logo span { color: #d96c4e; }
@@ -75,10 +65,10 @@
     .card-body { padding: 24px 20px; flex: 1; display: flex; flex-direction: column; }
     .card-tags { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
     .tag { background: #f2f0eb; color: #2b2b2b; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; }
-    .tag[data-type="Hitchhiking"] { background: #fff3cd; color: #856404; }
-    .tag[data-type="Luxury"] { background: #d4edda; color: #155724; }
-    .tag[data-type="Budget"] { background: #cce5ff; color: #004085; }
-    .tag[data-type="Solo"] { background: #f8d7da; color: #721c24; }
+    .tag[data-type="Hitchhiking"], .tag[data-type="hitchhiking"] { background: #fff3cd; color: #856404; }
+    .tag[data-type="Luxury"], .tag[data-type="luxury"] { background: #d4edda; color: #155724; }
+    .tag[data-type="Budget"], .tag[data-type="budget"] { background: #cce5ff; color: #004085; }
+    .tag[data-type="Solo"], .tag[data-type="solo"] { background: #f8d7da; color: #721c24; }
     .card h3 { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: #2b2b2b; }
     .card p { font-size: 0.9rem; color: #737373; margin-bottom: 24px; flex: 1; }
     .card-foot { font-size: 0.8rem; font-weight: 500; color: #737373; display: flex; justify-content: space-between; border-top: 1px solid #e6e4e0; padding-top: 16px; }
@@ -109,9 +99,9 @@
   <a href="index.html" class="logo">Desi<span>Wanderer</span>.</a>
   <div class="nav-links">
     <a href="budget.html">Budget</a>
-    <a href="#">Luxury</a>
-    <a href="#">Solo</a>
-    <a href="#">Hitchhiking</a>
+    <a href="luxury.html">Luxury</a>
+    <a href="solo.html">Solo</a>
+    <a href="hitchhiking.html">Hitchhiking</a>
   </div>
   <a href="#newsletter" class="nav-cta">Join the Tribe</a>
 </nav>
@@ -137,20 +127,10 @@
     <span class="tick-item"><span class="dot"></span> 👍 Hitchhiking Spiti Valley</span>
     <span class="tick-item"><span class="dot"></span> 🎒 Solo Female in Bali</span>
     <span class="tick-item"><span class="dot"></span> 🏕️ Backpacking Europe</span>
-    <span class="tick-item"><span class="dot"></span> ✨ Glamping in Swiss Alps</span>
-    <span class="tick-item"><span class="dot"></span> 👍 Hitching Route 66</span>
-    <span class="tick-item"><span class="dot"></span> 💸 Budget in Vietnam</span>
-    <span class="tick-item"><span class="dot"></span> ✨ Luxury in Maldives</span>
-    <span class="tick-item"><span class="dot"></span> 👍 Hitchhiking Spiti Valley</span>
-    <span class="tick-item"><span class="dot"></span> 🎒 Solo Female in Bali</span>
-    <span class="tick-item"><span class="dot"></span> 🏕️ Backpacking Europe</span>
-    <span class="tick-item"><span class="dot"></span> ✨ Glamping in Swiss Alps</span>
-    <span class="tick-item"><span class="dot"></span> 👍 Hitching Route 66</span>
   </div>
 </div>
 
 <div class="section" id="stories">
-  
   <div class="featured-post" data-fade>
     <div class="featured-img">🏔️</div>
     <div class="featured-content">
@@ -167,29 +147,17 @@
   </div>
   
   <div class="cards-grid" data-fade id="blog-cards-grid">
-    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-title skel-line" style="width: 60%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div><div class="skel-desc skel-line" style="width: 80%;"></div></div></div>
-    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-title skel-line" style="width: 60%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div><div class="skel-desc skel-line" style="width: 80%;"></div></div></div>
-    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-title skel-line" style="width: 60%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div><div class="skel-desc skel-line" style="width: 80%;"></div></div></div>
-  </div>
-</div>
-
-<div class="newsletter" id="newsletter" data-fade>
-  <h2>Travel Smarter, Not Harder.</h2>
-  <p>Get our weekly dispatch featuring hitchhiking routes, luxury hotel hacks, and solo travel safety guides directly in your inbox.</p>
-  <div class="email-row">
-    <input type="email" placeholder="Drop your email here..." />
-    <button>Subscribe Now</button>
+    <div class="card skeleton-card" aria-hidden="true"><div class="card-img skel-img"></div><div class="card-body"><div class="skel-tag skel-line"></div><div class="skel-title skel-line" style="width: 90%;"></div><div class="skel-desc skel-line" style="margin-top: 10px;"></div></div></div>
   </div>
 </div>
 
 <footer>
   <div class="logo">Desi<span>Wanderer</span>.</div>
   <div class="footer-links">
-    <a href="#">Hitchhiking Guides</a>
+    <a href="hitchhiking.html">Hitchhiking Guides</a>
     <a href="budget.html">Budget Backpacking</a>
-    <a href="#">Solo Travel</a>
-    <a href="#">Luxury Escapes</a>
-    <a href="#">Work With Us</a>
+    <a href="solo.html">Solo Travel</a>
+    <a href="luxury.html">Luxury Escapes</a>
   </div>
   <p>© 2026 Desi Wanderer. Built for every kind of traveler.</p>
 </footer>
@@ -207,78 +175,66 @@
   ];
 
   function parseCSV(text) {
-    const lines = text.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase().replace(/ /g,'_'));
-    return lines.slice(1).map(line => {
-      const cols = [];
-      let cur = '', inQ = false;
-      for (let i = 0; i < line.length; i++) {
-        const c = line[i];
-        if (c === '"') { inQ = !inQ; }
-        else if (c === ',' && !inQ) { cols.push(cur); cur = ''; }
-        else { cur += c; }
+      const result = [];
+      let cur = '', inQ = false, row = [];
+      for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (c === '"') {
+              if (inQ && text[i+1] === '"') { cur += '"'; i++; }
+              else { inQ = !inQ; }
+          } else if (c === ',' && !inQ) {
+              row.push(cur); cur = '';
+          } else if ((c === '\n' || c === '\r') && !inQ) {
+              if (c === '\r' && text[i+1] === '\n') i++; 
+              row.push(cur);
+              if (row.length > 1 || row[0] !== '') result.push(row);
+              cur = ''; row = [];
+          } else {
+              cur += c;
+          }
       }
-      cols.push(cur);
-      const obj = {};
-      headers.forEach((h, i) => obj[h] = (cols[i] || '').replace(/^"|"$/g,'').trim());
-      return obj;
-    });
+      if (cur !== '' || row.length > 0) { row.push(cur); result.push(row); }
+      
+      const headers = result[0].map(h => h.trim().toLowerCase().replace(/ /g,'_'));
+      return result.slice(1).map(r => {
+          const obj = {};
+          headers.forEach((h, j) => obj[h] = r[j] ? r[j].trim() : '');
+          return obj;
+      });
   }
 
   function renderCards(blogs) {
     const grid = document.getElementById('blog-cards-grid');
-    
-    // Fallback if sheet is empty or not formatted yet
-    const isMockNeeded = !blogs.length || !blogs[0].summary; 
-    const displayData = isMockNeeded ? [
-      { id: 'goa-5000', emoji: '🌴', category: 'Budget', title: 'Goa for ₹5,000? The Ultimate Off-Season Backpacking Guide', summary: 'Forget expensive beach shacks and overpriced taxis. We stayed in a ₹400/night hostel in Arambol, rented a scooty, and ate incredible fish thalis.', read_time: '10 Min Read' },
-      { id: 'sleeper-class', emoji: '🚂', category: 'Budget', title: 'Sleeper Class Diaries: Why the Indian Railways is an Adventure', summary: 'Side lower seat, chaiwaalas singing at 3 AM, and sharing puri-sabzi with aunties.', read_time: '7 Min Read' }
-    ] : blogs;
+    if (!blogs.length) { grid.innerHTML = '<p>More stories coming soon!</p>'; return; }
 
-    grid.innerHTML = displayData.map((b, i) => {
+    grid.innerHTML = blogs.map((b, i) => {
       const grad = b.image_grad || GRADIENTS[i % GRADIENTS.length];
-      const href = b.id ? `href="post.html?id=${b.id}"` : 'href="#"';
-      
       return `
-        <a ${href} class="card">
+        <a href="post.html?id=${b.id}" class="card">
           <div class="card-img" style="background:${grad}">${b.emoji || '✈️'}</div>
           <div class="card-body">
-            <div class="card-tags">
-              <span class="tag" data-type="${b.category || 'Travel'}">${b.category || 'Travel'}</span>
-            </div>
+            <div class="card-tags"><span class="tag" data-type="${b.category}">${b.category || 'Travel'}</span></div>
             <h3>${b.title}</h3>
             <p>${b.summary}</p>
-            <div class="card-foot">
-              <span>Desi Wanderer</span>
-              <span>${b.read_time || '5 Min Read'}</span>
-            </div>
+            <div class="card-foot"><span>Desi Wanderer</span><span>${b.read_time || '5 Min Read'}</span></div>
           </div>
         </a>`;
     }).join('');
-    
     grid.querySelectorAll('.card').forEach(el => observer.observe(el));
   }
 
   async function loadBlogs() {
-    const grid = document.getElementById('blog-cards-grid');
     try {
-      const res  = await fetch(SHEET_CSV_URL);
-      if (!res.ok) throw new Error('fetch failed');
+      const res = await fetch(SHEET_CSV_URL);
       const text = await res.text();
-      const all  = parseCSV(text);
+      const all = parseCSV(text);
       const live = all.filter(b => b.published === 'TRUE' || b.published === 'true' || b.published === '1');
       renderCards(live);
-    } catch (err) {
-      console.error('Blog load error, loading default mock data:', err);
-      renderCards([]); 
-    }
+    } catch (err) { console.error('Error:', err); }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver((e) => { e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
   document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el));
-
   loadBlogs();
 </script>
 </body>
