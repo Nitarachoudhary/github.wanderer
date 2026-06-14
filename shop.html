@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Shop – Best Gear for Indian Travelers | Desi Wanderer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Best travel gear for Indian backpackers and trekkers. Handpicked trekking bags, cameras, camping gear and road trip essentials. Shop on Amazon India." />
+  <meta name="keywords" content="travel gear India, trekking backpack India, camping gear India, travel accessories India, best travel products India" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nitarachoudhary.github.io/wanderer/shop.html" />
+  <meta property="og:title" content="Desi Wanderer Travel Shop – Best Gear for Indian Travelers" />
+  <meta property="og:description" content="Handpicked travel gear for every kind of Indian traveler. Trekking, camping, photography and road trip essentials." />
+  <meta property="og:url" content="https://nitarachoudhary.github.io/wanderer/shop.html" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #faf9f8; --surface: #ffffff; --border: #e6e4e0;
+      --accent: #d96c4e; --accent-dim: #fdf5f3;
+      --text-main: #2b2b2b; --muted: #737373;
+      --font-head: 'Lora', serif; --font-body: 'Poppins', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text-main); font-family: var(--font-body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,249,248,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 500; padding: 8px 20px; border-radius: 30px; transition: background .2s; }
+    .nav-cta:hover { background: #c25b3f; }
+
+    /* HERO */
+    .hero { padding: 60px 5% 40px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-badge { display: inline-block; background: var(--accent-dim); color: var(--accent); font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+    .hero h1 { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .hero h1 i { color: var(--accent); font-weight: 400; }
+    .hero p { color: var(--muted); font-size: 1rem; max-width: 600px; margin: 0 auto 16px; }
+
+    /* DISCLOSURE */
+    .disclosure { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 12px 20px; max-width: 800px; margin: 0 auto 40px; font-size: 0.82rem; color: #5d4037; text-align: center; }
+
+    /* CATEGORY TABS */
+    .tabs { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 0 5% 40px; }
+    .tab { background: var(--surface); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px; font-size: 0.85rem; font-weight: 500; color: var(--muted); cursor: pointer; transition: all .2s; }
+    .tab:hover, .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* SECTION */
+    .shop-section { max-width: 1200px; margin: 0 auto; padding: 0 5% 60px; }
+    .section-title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+    .section-title span { font-size: 1.8rem; }
+    .section-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
+
+    /* PRODUCT GRID */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; margin-bottom: 60px; }
+    .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.07); }
+    .product-emoji { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 4rem; border-bottom: 1px solid var(--border); }
+    .product-body { padding: 18px 16px; flex: 1; display: flex; flex-direction: column; }
+    .product-tag { display: inline-block; background: var(--accent-dim); color: var(--accent); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+    .product-name { font-family: var(--font-head); font-size: 1rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+    .product-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; flex: 1; }
+    .product-price { font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 14px; }
+    .product-price span { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+    .buy-btn { display: block; background: #ff9900; color: #111; text-align: center; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; transition: background .2s; }
+    .buy-btn:hover { background: #e68a00; }
+    .buy-btn::before { content: "🛒 "; }
+
+    /* DIVIDER */
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0 50px; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 50px 5% 30px; text-align: center; background: var(--surface); }
+    footer .logo { font-size: 1.4rem; margin-bottom: 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 28px; font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--accent); }
+    footer p { font-size: 0.82rem; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+      .product-emoji { font-size: 3rem; }
+    }
+
+    /* Category visibility */
+    .cat-section { display: block; }
+    .cat-section.hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Desi<span>Wanderer</span>.</a>
+  <div class="nav-links">
+    <a href="budget.html">Budget</a>
+    <a href="luxury.html">Luxury</a>
+    <a href="solo.html">Solo</a>
+    <a href="hitchhiking.html">Hitchhiking</a>
+    <a href="shop.html" class="active" style="color:var(--accent)">Shop</a>
+  </div>
+  <a href="#" class="nav-cta">Join the Tribe</a>
+</nav>
+
+<div class="hero">
+  <span class="hero-badge">Gear Up & Go</span>
+  <h1>Everything You Need to<br/><i>Travel India Right.</i></h1>
+  <p>Handpicked gear tested on real Indian trips — from Spiti Valley to Goa beaches. All links go to Amazon India.</p>
+</div>
+
+<div class="disclosure">
+  ⚠️ <strong>Affiliate Disclosure:</strong> Desi Wanderer earns a small commission when you buy through our links — at no extra cost to you. We only recommend gear we'd actually carry ourselves.
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="filterCat('all')">🌍 All Gear</div>
+  <div class="tab" onclick="filterCat('trekking')">🎒 Trekking</div>
+  <div class="tab" onclick="filterCat('camping')">🏕️ Camping</div>
+  <div class="tab" onclick="filterCat('photography')">📸 Photography</div>
+  <div class="tab" onclick="filterCat('roadtrip')">🚗 Road Trip</div>
+  <div class="tab" onclick="filterCat('essentials')">🧳 Essentials</div>
+</div>
+
+<div class="shop-section">
+
+  <!-- TREKKING -->
+  <div class="cat-section" id="cat-trekking">
+    <div class="section-title"><span>🎒</span> Trekking Gear</div>
+    <p class="section-sub">Everything you need for Spiti, Ladakh, Valley of Flowers and the Sahyadris.</p>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#e0c3fc 0%,#8ec5fc 100%)">🎒</div>
+        <div class="product-body">
+          <span class="product-tag">Best Seller</span>
+          <div class="product-name">Trekking Backpack 50-60L</div>
+          <div class="product-desc">Perfect for multi-day Himalayan treks. Waterproof, adjustable straps, rain cover included.</div>
+          <div class="product-price">Starting ₹2,500 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=trekking+backpack+50+litre&linkCode=ll2&tag=gadgetpuls061-21&linkId=2deb36c87590779f992781879aabf138&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#a1c4fd 0%,#c2e9fb 100%)">👟</div>
+        <div class="product-body">
+          <span class="product-tag">Must Have</span>
+          <div class="product-name">Trekking Shoes (Waterproof)</div>
+          <div class="product-desc">Ankle support, grip sole, waterproof. Essential for rocky Himalayan terrain.</div>
+          <div class="product-price">Starting ₹1,800 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=waterproof+trekking+shoes+men+women&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#fdfbfb 0%,#ebedee 100%)">🥾</div>
+        <div class="product-body">
+          <span class="product-tag">Trekking</span>
+          <div class="product-name">Trekking Poles (Pair)</div>
+          <div class="product-desc">Adjustable aluminium poles. Saves your knees on steep descents in Kedarnath and Triund.</div>
+          <div class="product-price">Starting ₹800 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=trekking+poles+pair+adjustable&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#f6d365 0%,#fda085 100%)">🔦</div>
+        <div class="product-body">
+          <span class="product-tag">Essential</span>
+          <div class="product-name">LED Headlamp</div>
+          <div class="product-desc">Hands-free lighting for camping, night treks, and cave exploration in Meghalaya.</div>
+          <div class="product-price">Starting ₹400 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=led+headlamp+trekking+camping&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#89f7fe 0%,#66a6ff 100%)">🧥</div>
+        <div class="product-body">
+          <span class="product-tag">Trekking</span>
+          <div class="product-name">Waterproof Rain Poncho</div>
+          <div class="product-desc">Lightweight, packable rain cover. Non-negotiable for monsoon treks and Kerala backwaters.</div>
+          <div class="product-price">Starting ₹400 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=waterproof+rain+poncho+trekking&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#d4fc79 0%,#96e6a1 100%)">🧴</div>
+        <div class="product-body">
+          <span class="product-tag">Safety</span>
+          <div class="product-name">Water Purification Tablets</div>
+          <div class="product-desc">Purify mountain stream water instantly. Essential for remote Himalayan treks where clean water is scarce.</div>
+          <div class="product-price">Starting ₹200 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=water+purification+tablets+trekking&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+    <hr class="section-divider"/>
+  </div>
+
+  <!-- CAMPING -->
+  <div class="cat-section" id="cat-camping">
+    <div class="section-title"><span>🏕️</span> Camping Gear</div>
+    <p class="section-sub">For those nights under stars at Pangong Lake, Chopta meadows and Spiti valleys.</p>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#e0c3fc 0%,#8ec5fc 100%)">⛺</div>
+        <div class="product-body">
+          <span class="product-tag">Best Seller</span>
+          <div class="product-name">2-Person Camping Tent</div>
+          <div class="product-desc">Lightweight, waterproof, easy setup. Used for camping at Pangong Lake and Triund meadows.</div>
+          <div class="product-price">Starting ₹2,000 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=2+person+camping+tent+waterproof&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%)">🛌</div>
+        <div class="product-body">
+          <span class="product-tag">Must Have</span>
+          <div class="product-name">Sleeping Bag (5°C Rating)</div>
+          <div class="product-desc">Rated for Himalayan nights. Compact, lightweight mummy bag for high altitude camping.</div>
+          <div class="product-price">Starting ₹1,500 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=sleeping+bag+camping+cold+weather&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#f6d365 0%,#fda085 100%)">🔥</div>
+        <div class="product-body">
+          <span class="product-tag">Camping</span>
+          <div class="product-name">Portable Camping Stove</div>
+          <div class="product-desc">Gas canister stove for making chai at 4,500m. Compact and windproof design.</div>
+          <div class="product-price">Starting ₹800 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=portable+camping+stove+gas+canister&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)">🪔</div>
+        <div class="product-body">
+          <span class="product-tag">Camping</span>
+          <div class="product-name">Solar Lantern + Power Bank</div>
+          <div class="product-desc">Charges in sunlight during the day, lights your tent at night. Game changer for remote camping.</div>
+          <div class="product-price">Starting ₹600 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=solar+lantern+camping+rechargeable&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+    <hr class="section-divider"/>
+  </div>
+
+  <!-- PHOTOGRAPHY -->
+  <div class="cat-section" id="cat-photography">
+    <div class="section-title"><span>📸</span> Photography Gear</div>
+    <p class="section-sub">Capture the Taj at sunrise, Pangong Lake at dusk, and every dhaba in between.</p>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#a8edea 0%,#fed6e3 100%)">📷</div>
+        <div class="product-body">
+          <span class="product-tag">Top Pick</span>
+          <div class="product-name">GoPro Action Camera</div>
+          <div class="product-desc">Waterproof, compact, shoots 4K. Perfect for bike trips on Manali-Leh highway and Goa beaches.</div>
+          <div class="product-price">Starting ₹20,000 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=gopro+action+camera&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#fdfbfb 0%,#ebedee 100%)">🦅</div>
+        <div class="product-body">
+          <span class="product-tag">Photography</span>
+          <div class="product-name">Mini Drone Camera</div>
+          <div class="product-desc">Aerial shots of Rajasthan forts, Kerala backwaters and Himalayan valleys. Foldable and travel-friendly.</div>
+          <div class="product-price">Starting ₹8,000 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=mini+drone+camera+travel&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#f6d365 0%,#fda085 100%)">🔭</div>
+        <div class="product-body">
+          <span class="product-tag">Essential</span>
+          <div class="product-name">Flexible Gorilla Tripod</div>
+          <div class="product-desc">Wraps around rocks, railings and trees. Perfect for solo travel photography when nobody is around to help.</div>
+          <div class="product-price">Starting ₹600 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=gorilla+tripod+flexible+camera&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#89f7fe 0%,#66a6ff 100%)">💾</div>
+        <div class="product-body">
+          <span class="product-tag">Photography</span>
+          <div class="product-name">High Speed SD Card 128GB</div>
+          <div class="product-desc">Fast write speed for 4K video. Never miss a shot because your card is full. Always carry two.</div>
+          <div class="product-price">Starting ₹800 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=128gb+sd+card+high+speed&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+    <hr class="section-divider"/>
+  </div>
+
+  <!-- ROAD TRIP -->
+  <div class="cat-section" id="cat-roadtrip">
+    <div class="section-title"><span>🚗</span> Road Trip Essentials</div>
+    <p class="section-sub">For the Manali-Leh bike ride, the Konkan coastal drive, and every highway in between.</p>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#e0c3fc 0%,#8ec5fc 100%)">📱</div>
+        <div class="product-body">
+          <span class="product-tag">Must Have</span>
+          <div class="product-name">Car & Bike Phone Mount</div>
+          <div class="product-desc">360° rotation, strong grip, fits all phones. Essential for navigation on highway trips.</div>
+          <div class="product-price">Starting ₹300 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=bike+car+phone+mount+holder&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#f6d365 0%,#fda085 100%)">🔋</div>
+        <div class="product-body">
+          <span class="product-tag">Road Trip</span>
+          <div class="product-name">Power Bank 20,000mAh</div>
+          <div class="product-desc">Charges your phone 5-6 times. Non-negotiable for remote areas with no electricity for days.</div>
+          <div class="product-price">Starting ₹1,200 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=20000mah+power+bank+fast+charging&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)">🎧</div>
+        <div class="product-body">
+          <span class="product-tag">Road Trip</span>
+          <div class="product-name">Wireless Earbuds</div>
+          <div class="product-desc">For those long sleeper train journeys and highway rides. Noise cancellation keeps dhaba noise out.</div>
+          <div class="product-price">Starting ₹1,000 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=wireless+earbuds+noise+cancellation&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#fdfbfb 0%,#ebedee 100%)">⚡</div>
+        <div class="product-body">
+          <span class="product-tag">Safety</span>
+          <div class="product-name">Portable Jump Starter</div>
+          <div class="product-desc">Start your car or bike battery anywhere. Doubles as a power bank. Essential for remote road trips.</div>
+          <div class="product-price">Starting ₹2,500 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=portable+jump+starter+car+bike&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+    <hr class="section-divider"/>
+  </div>
+
+  <!-- TRAVEL ESSENTIALS -->
+  <div class="cat-section" id="cat-essentials">
+    <div class="section-title"><span>🧳</span> Travel Essentials</div>
+    <p class="section-sub">The small things that make a massive difference on every trip.</p>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#a1c4fd 0%,#c2e9fb 100%)">🔒</div>
+        <div class="product-body">
+          <span class="product-tag">Safety</span>
+          <div class="product-name">TSA Combination Padlock</div>
+          <div class="product-desc">Lock your bag to your sleeper train berth. The ₹300 investment that protects ₹30,000 of gear.</div>
+          <div class="product-price">Starting ₹250 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=combination+padlock+travel+bag&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%)">💊</div>
+        <div class="product-body">
+          <span class="product-tag">Health</span>
+          <div class="product-name">First Aid Kit (Travel Size)</div>
+          <div class="product-desc">Bandages, antiseptic, altitude sickness tablets, ORS sachets. Pack this before every trip.</div>
+          <div class="product-price">Starting ₹400 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=travel+first+aid+kit+compact&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#d4fc79 0%,#96e6a1 100%)">🌡️</div>
+        <div class="product-body">
+          <span class="product-tag">Essential</span>
+          <div class="product-name">Packing Cubes Set</div>
+          <div class="product-desc">Organise your bag like a pro. Separate clothes, electronics and toiletries. Saves 30 mins every morning.</div>
+          <div class="product-price">Starting ₹600 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=packing+cubes+travel+organiser+set&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#89f7fe 0%,#66a6ff 100%)">💧</div>
+        <div class="product-body">
+          <span class="product-tag">Must Have</span>
+          <div class="product-name">Insulated Water Bottle 1L</div>
+          <div class="product-desc">Keeps water cold in Goa heat, keeps chai hot at Rohtang Pass. The one travel item you use every single day.</div>
+          <div class="product-price">Starting ₹600 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=insulated+water+bottle+1+litre+travel&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#f6d365 0%,#fda085 100%)">🌞</div>
+        <div class="product-body">
+          <span class="product-tag">Essential</span>
+          <div class="product-name">SPF 50 Sunscreen</div>
+          <div class="product-desc">High altitude UV is brutal. Apply before every Himalayan trek or beach day. Most trekkers skip this and regret it.</div>
+          <div class="product-price">Starting ₹300 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=sunscreen+spf+50+travel+size&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-emoji" style="background:linear-gradient(135deg,#a8edea 0%,#fed6e3 100%)">🛜</div>
+        <div class="product-body">
+          <span class="product-tag">Connectivity</span>
+          <div class="product-name">Portable WiFi Hotspot</div>
+          <div class="product-desc">Stay connected in remote areas. Useful when your main SIM has no signal but a different network does.</div>
+          <div class="product-price">Starting ₹1,500 <span>onwards</span></div>
+          <a href="https://www.amazon.in/s?k=portable+wifi+hotspot+device+india&linkCode=ll2&tag=gadgetpuls061-21&ref_=as_li_ss_tl" target="_blank" rel="nofollow" class="buy-btn">Buy on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="logo">Desi<span>Wanderer</span>.</div>
+  <div class="footer-links">
+    <a href="hitchhiking.html">Hitchhiking</a>
+    <a href="budget.html">Budget</a>
+    <a href="solo.html">Solo</a>
+    <a href="luxury.html">Luxury</a>
+    <a href="shop.html">Travel Shop</a>
+  </div>
+  <p>© 2026 Desi Wanderer. We earn affiliate commission from Amazon at no extra cost to you.</p>
+</footer>
+
+<script>
+  function filterCat(cat) {
+    // Update tabs
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // Show/hide sections
+    const sections = {
+      trekking: 'cat-trekking',
+      camping: 'cat-camping',
+      photography: 'cat-photography',
+      roadtrip: 'cat-roadtrip',
+      essentials: 'cat-essentials'
+    };
+
+    if (cat === 'all') {
+      Object.values(sections).forEach(id => {
+        document.getElementById(id).classList.remove('hidden');
+      });
+    } else {
+      Object.entries(sections).forEach(([key, id]) => {
+        const el = document.getElementById(id);
+        if (key === cat) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    }
+
+    // Scroll to top of shop
+    document.querySelector('.shop-section').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
