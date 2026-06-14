@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nitarachoudhary.github.io/wanderer/sitemap.xml
